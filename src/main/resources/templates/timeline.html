@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Bullhorn Timeline</title>
+</head>
+<body>
+<h2>Bullhorn</h2>
+
+<a href="/addmessage">Add a Message</a>
+<a href="/messagelist">Show All My Messages</a>
+<a href="/logout">Logout</a>
+<br/>
+<br/>
+
+<table>
+    <tr>
+        <th>Message</th>
+        <th>Sent By</th>
+        <th>Date Posted</th>
+
+    </tr>
+    <tr th:each="message : ${messages}">
+        <td th:text="${message.content}"></td>
+        <td th:text="${message.username}"></td>
+        <td th:text="${message.postdate}"></td>
+
+
+
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

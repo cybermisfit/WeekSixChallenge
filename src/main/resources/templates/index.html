@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Bullhorn Index</title>
+
+</head>
+<body>
+
+<h2>Bullhorn</h2>
+<a href="/login">Login</a>
+<a href="/logout">Logout</a>
+<a href="/register">Register</a>
+<a href="/messagelist">My Messages</a>
+<br/>
+<br/>
+
+<div sec:authorize="isAuthenticated()">
+
+    Bullhorn content is only shown to authenticated users.<br/>
+
+    <div sec:authorize="hasAuthority('ROLE_ADMIN')">
+        This content is only shown to administrators.
+    </div>
+
+    <div sec:authorize="hasAuthority('ROLE_USER')">
+        This content is only shown to users.
+
+    </div>
+
+    <br/>
+
+    Bullhorn welcomes Logged User: <span sec:authentication="name">The value of the "name" property of the authentication
+        object should appear here.</span>
+    <br/>
+
+    Role: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span><br/><br/>
+
+
+
+</div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <title>Bullhorn Login</title>
+
+</head>
+<body>
+
+<h2>Bullhorn</h2>
+
+<a href="/login">Login</a>
+<a href="/logout">Logout</a>
+<a href="/register">Register</a>
+<a href="/messagelist">Messages</a>
+
+<br/>
+<br/>
+
+<div th:if="${param.error}">
+    Invalid username and password.
+</div>
+<div th:if="${param.logout}">
+    You have been logged out.
+</div>
+
+<form th:action="@{/login}" method="post">
+    <div><label>User Name: <input type="text" name="username"/>
+    </label></div>
+    <div><label>Password: <input type="password" name="password"/>
+    </label></div>
+    <div><input type="submit" value="Sign In"/></div>
+</form>
+
+
+</body>
+</html>

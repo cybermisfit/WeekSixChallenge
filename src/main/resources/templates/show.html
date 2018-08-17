@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <title>Show Bullhorn Messages</title>
+    <th:block th:insert="base :: header"></th:block>
+
+</head>
+<body>
+<div th:replace="base :: navlinks"></div>
+<a href="/messagelist">Show All Messages</a><br />
+<a href="/addmessage">Add a Message</a><br />
+
+Message :<p th:text="${message.content}"></p><br />
+
+Posted Date :<p th:text="${message.postdate}"></p><br />
+
+Sent by : <span th:text="${message.username}"></span><br/>
+
+
+
+</body>
+</html>

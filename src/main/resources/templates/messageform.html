@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <title>Bullhorn Form</title>
+
+</head>
+<body>
+<h2>Bullhorn</h2>
+
+<a href="/messagelist">See all My Messages</a>
+<a href="/logout">Logout</a>
+<br/>
+<br/>
+
+<form action="#" th:action="@{/process}" th:object="${message}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    Message :<textarea rows="3" th:field="*{content}" />
+    <span th:if="${#fields.hasErrors('content')}"
+          th:errors="*{content}"></span><br />
+
+    Date Posted :<input type="date" th:field="*{postdate}" />
+    <span th:if="${#fields.hasErrors('postdate')}"
+          th:errors="*{postdate}"></span><br />
+
+    Sent By :<input type="text" th:field="*{username}" />
+    <span th:if="${#fields.hasErrors('username')}"
+          th:errors="*{username}"></span><br />
+
+    <br />
+
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>
